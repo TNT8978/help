@@ -26,6 +26,7 @@ func _unhandled_input(event):
 	if event.is_action_released("ui_accept") and build_mode == true:
 		## this is working
 		verify_and_build()
+		## ^^^ this is getting hit with a "_unhandled_input()
 		cancel_build_mode()
 
 
@@ -54,4 +55,5 @@ func cancel_build_mode():
 func verify_and_build():
 	var new_tower = load("res://Rogurim/Towers/" + build_type + ".tscn").instance()
 	new_tower.position = build_location
-	map_node.get_node("Towers")
+	map_node.get_node("Towers").add_chaild(new_tower, True)
+	## ^^ this is getting hit by 3 things, 1st thing <C++ Error>("Codition "!node" Is True. Returned:nullptr"), 2ed thing <C++ Source>("scen/main/node.cpp:1325 @ get_node()"), last thing <Stack Trace>("GameScene.gd:59 @ verify_and_build").
