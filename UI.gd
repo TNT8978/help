@@ -1,24 +1,21 @@
 extends CanvasLayer
 
-var tower_range = 350
-
-
 func set_tower_preview(tower_type, mouse_position):
 	var drag_tower = load("res://Rogurim/Towers/" + tower_type + ".tscn").instance()
 	drag_tower.set_name("DragTower")
 	drag_tower.modulate = Color("1aff00")
 	
-	var range_texure = Sprite.new()
-	range_texure.position = Vector2(32,32)
-	var scaling = tower_range / 600.0
-	range_texure.scale = Vector2(scaling, scaling)
+	var range_texture = Sprite.new()
+	range_texture.position = Vector2(32,32)
+	var scaling = GameData.tower_data[tower_type]["range"] / 600.0
+	range_texture.scale = Vector2(scaling, scaling)
 	var texture = load("res://Rogurim/range_overlay.png")
-	range_texture.texture = texture2
-	range_texture2.modulate = color("1aff00")
+	range_texture.texture = texture
+	range_texture.modulate = Color("1aff00")
 	
 	var control = Control.new()
 	control.add_child(drag_tower, true)
-	control.add_child(range_texure, true)
+	control.add_child(range_texture, true)
 	control.rect_position = mouse_position
 	control.set_name("TowerPreview")
 	add_child(control, true)
