@@ -1,7 +1,7 @@
 extends Node
 
 var tower_data = {
-#	Arrpw Tower
+#	Arrow Tower
 	"ArrowTowerT1" : {
 		"damge" : 20,
 		"rof": 1,
