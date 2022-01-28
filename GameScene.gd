@@ -19,9 +19,12 @@ func _process(delta):
 
 
 func _unhandled_input(event):
-	if event.is_action_released("ui_cancel") and build_mode == false:
+	if event.is_action_released("ui_cancel") and build_mode == true:
+		## this is not working.
+		print("bob")
 		cancel_build_mode()
 	if event.is_action_released("ui_accept") and build_mode == true:
+		## this is working
 		verify_and_build()
 		cancel_build_mode()
 
