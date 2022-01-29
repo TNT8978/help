@@ -44,8 +44,7 @@ func _on_PausePlay_pressed():
 
 
 func _on_SpeedUpRG_pressed():
-	if Engine.set_time_scale() == 2.0:
-	## ^^ this is getting hit by (error: Too few arguments for "set_time_scale()" call. Expected at least 1.)
+	if Engine.get_time_scale() == 2.0:
 		Engine.set_time_scale(1.0)
 	else:
 		Engine.set_time_scale(2.0)
