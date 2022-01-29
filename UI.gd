@@ -44,6 +44,8 @@ func _on_PausePlay_pressed():
 
 
 func _on_SpeedUpRG_pressed():
+	if get_parent().build_mode:
+		get_parent().cancel_build_mode()
 	if Engine.get_time_scale() == 2.0:
 		Engine.set_time_scale(1.0)
 	else:
