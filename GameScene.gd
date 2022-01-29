@@ -45,7 +45,7 @@ func start_next_wave():
 	
 	
 func retrieve_wave_data():
-	var wave_data = [["Enemy1", 0.7], ["Enemy1", 0.1]]
+	var wave_data = [["Enemy1", 3.0], ["Enemy1", 0.1]]
 	current_wave += 1
 	enemies_in_wave = wave_data.size()
 	return wave_data
@@ -92,5 +92,6 @@ func cancel_build_mode():
 func verify_and_build():
 	var new_tower = load("res://Rogurim/Towers/" + build_type + ".tscn").instance()
 	new_tower.position = build_location
+	new_tower.built = true
 	map_node.get_node("Towers").add_child(new_tower, true)
 	map_node.get_node("TowerExclusion").set_cellv(build_tile, 2)
