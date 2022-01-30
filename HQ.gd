@@ -13,3 +13,4 @@ func _ready():
 		HQ_AP.play(Animation,"1Loop")
 	else:
 		HQ_AP.play(Animation,"1StandBy")
+		### ^^^ this is getting hit by "Invalid call. Nonexistent function 'play' in base 'String'.
