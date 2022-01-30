@@ -10,8 +10,9 @@ func _ready():
 	randomize()
 	HQ_Play_Rando.shuffle()
 	if HQ_Play_Rando[0] == 1:
-		HQ_AP.play(Animation, "1Loop")
+		HQ_AP.play("1Loop")
+		print("Loop have happen")
 	else:
-		HQ_AP.play(Animation, "1StandBy")
-		### "Invalid type in function 'play' in base "AnimatedSprite'. Cannot convert argument ->
-		### -> 1 from Object to String." on line 15. This is with the fix
+		HQ_AP.play("1StandBy")
+		print("StandBy have happen")
+
