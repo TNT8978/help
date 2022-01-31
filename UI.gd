@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+onready var hp_bar = get_node("Hud/InfoBar/HP")
+onready var hp_bar_tween = get_node("Hud/InfoBar/HP/Tween")
+
+
 func set_tower_preview(tower_type, mouse_position):
 	var drag_tower = load("res://Rogurim/Towers/" + tower_type + ".tscn").instance()
 	drag_tower.set_name("DragTower")
@@ -28,6 +32,7 @@ func update_tower_preview(new_position, color):
 		get_node("TowerPreview/Sprite").modulate = Color(color)
 
 
+
 ##
 ## Game Control Function
 ##
@@ -50,3 +55,8 @@ func _on_SpeedUpRG_pressed():
 		Engine.set_time_scale(1.0)
 	else:
 		Engine.set_time_scale(2.0)
+
+
+func update_health_bar(base_health):
+	hp_bar_tween.interpolate_property(hp_bar, 'value', hp_bar_tween, base_health, 0,1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	hp_bar_tween.start()
