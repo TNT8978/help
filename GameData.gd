@@ -1,31 +1,42 @@
 extends Node
 
 var tower_data = {
-##		##
-##Arrow  Towert1##
-##		##
-	"ArrowTowerT1" : {
+##				##
+##Arrow  TowerT1##
+##				##
+	"ArrowTowerT1": {
 		"damge" : 20,
 		"rof": 1,
 		"range": 150},
-##		##
-##Morter Towert1##
-##		##
-	"MorterTowert1": {
+##				##
+##Morter TowerT1##
+##				##
+	"MorterTowerT1": {
 		"damge": 50,
-		"rof": 5,
-		"range": 300},
-##		##
-##Arrow  Tower  ##
-##		##
+		"rof": 2.5,
+		"range": 500},
+##				##
+## Arrow  Tower ##
+##				##
 	"ArrowTower" : {
 		"damge" : 20,
 		"rof": 1,
 		"range": 150},
-##		##
-##Morter Tower  ##
-##		##
+##				##
+## Morter Tower ##
+##				##
 	"MorterTower": {
 		"damge": 50,
-		"rof": 5,
-		"range": 300}}
+		"rof": 2.5,
+		"range": 500}}
+
+var wave_data_number = {
+	"wave1": {
+		"spawns": 
+			["Enemy1", 1.0, 5] 
+		},
+	"wave2": {
+		"sapwns":
+			["Enemy1", 1.0, 8]
+		}
+	}
