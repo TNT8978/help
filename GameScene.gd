@@ -25,19 +25,21 @@ func _ready():
 	map_node = get_node("MapRogurim")
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", self, "initiate_build_mode", [i.get_name()])
-
-onready var Timer1 = $Timer
-onready var Timer1delay: float = 10
+		
+	
 
 func _process(_delta):
 	if build_mode:
 		update_tower_preview()
+	
+
+func _physics_process(delta):
 	if no_enemys:
+		yield(get_tree().create_timer(5), "timeout")
 		Next_Wave()
 		no_enemys = false
-	Timer1.start()
 	yield(get_tree().create_timer(5), "timeout")
-	no_enemys()
+	no_Enemys()
 
 func _unhandled_input(event):
 	if event.is_action_released("ui_cancel") and build_mode ==true:
@@ -73,10 +75,10 @@ func spawn_enemies(wave_data):
 		
 	
 
-func no_enemys():
+func no_Enemys():
 	var enemys = get_node("MapRogurim/Path")
 	var Enemys = enemys.get_children()
-	if Enemys == 0:
+	if Enemys.size() == 0:
 		no_enemys = true
 
 func Next_Wave():
