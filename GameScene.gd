@@ -28,18 +28,22 @@ func _ready():
 		
 	
 
+onready var Timer1
+onready var Timer1Delay: float = 50
+onready var Timer2Delay: float = 25
+
 func _process(_delta):
 	if build_mode:
 		update_tower_preview()
 	
 
-func _physics_process(delta):
-	if no_enemys:
-		yield(get_tree().create_timer(5), "timeout")
-		Next_Wave()
-		no_enemys = false
-	yield(get_tree().create_timer(5), "timeout")
-	no_Enemys()
+#func _physics_process(delta):
+#	if no_enemys and Timer1.is_stopped():
+#		Next_Wave()
+#		Timer1.start(Timer1Delay)
+#		no_enemys = false
+#	Timer1.start(Timer2Delay)
+#	no_Enemys()
 
 func _unhandled_input(event):
 	if event.is_action_released("ui_cancel") and build_mode ==true:
