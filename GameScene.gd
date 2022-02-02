@@ -51,10 +51,11 @@ func start_next_wave():
 var wave_data_number
 
 func retrieve_wave_data():
-
-	var wave_data = wave_data_number
 	var wave_type = "wave%d" % current_wave
-	current_wave += 1
+	wave_data_number = wave_type
+	var wave_data = wave_data_number
+	wave_data.size = wave_data_number[wave_type]
+	wave_data = wave_type
 	enemies_in_wave = wave_data.size()
 	return wave_data
 
