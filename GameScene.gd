@@ -1,5 +1,7 @@
 extends Node2D
 
+signal game_finished(result)
+
 var map_node
 
 var build_mode = false
@@ -45,17 +47,27 @@ func start_next_wave():
 	yield(get_tree().create_timer(0.2), "timeout")
 	spawn_enemies(wave_data)
 	
-	
+
+var wave_data_number
+
 func retrieve_wave_data():
-	var wave_data = [["Enemy1", 1.0], ["Enemy1", 1.0],
-	 ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0],
-	 ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0],
-	 ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0],
-	 ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0],
-	 ["Enemy1", 1.0], ["Enemy1", 1.0]]
+
+	var wave_data = wave_data_number
+	var wave_type = "wave%d" % current_wave
 	current_wave += 1
 	enemies_in_wave = wave_data.size()
 	return wave_data
+
+#func retrieve_wave_data():
+#	var wave_data = [
+#	["Enemy1", 0.75], ["Enemy1", 0.75], ["Enemy1", 0.75], ["Enemy1", 0.75], 
+#	["Enemy1", 0.75], ["Enemy1", 0.75], ["Enemy1", 0.75], ["Enemy1", 0.75], 
+#	["Enemy3", 0.1], ["Enemy3", 0.1], ["Enemy3", 0.1], ["Enemy3", 0.1], 
+#	["Enemy2", 0.5], ["Enemy2", 0.5], ["Enemy2", 0.5], ["Enemy2", 0.5]
+#	]
+#	current_wave += 1
+#	enemies_in_wave = wave_data.size()
+#	return wave_data
 
 func spawn_enemies(wave_data):
 	for i in wave_data:
@@ -111,7 +123,6 @@ func on_base_damage(damage):
 	base_health -= damage
 	if base_health <= 0:
 		emit_signal("game_finished", false)
-		## This is FUCKING GETTING HIT by "emit_siganl: Can't emit non-existing signal "game_finished". "
 		
 	else:
 		get_node("UI").update_health_bar(base_health)
