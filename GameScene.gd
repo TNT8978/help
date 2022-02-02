@@ -48,14 +48,12 @@ func start_next_wave():
 	spawn_enemies(wave_data)
 	
 
-var wave_data_number
+
 
 func retrieve_wave_data():
 	var wave_type = "wave%d" % current_wave
-	wave_data_number = wave_type
-	var wave_data = wave_data_number
-	wave_data.size = wave_data_number[wave_type]
-	wave_data = wave_type
+	var wave_data = wave_type
+	GameData.wave_data_number[wave_data]
 	enemies_in_wave = wave_data.size()
 	return wave_data
 
