@@ -33,11 +33,11 @@ var tower_data = {
 var wave_data_number = {
 	"wave1": {
 		"spawns": [
-			{"Enemy1", 1.0},
-			{"Enemy1", 1.0},
-			{"Enemy1", 1.0},
-			{"Enemy1", 1.0},
-			{"Enemy1", 1.0}
+			["Enemy1", 1.0],
+			["Enemy1", 1.0],
+			["Enemy1", 1.0],
+			["Enemy1", 1.0],
+			["Enemy1", 1.0]
 			]
 		}
 	}
