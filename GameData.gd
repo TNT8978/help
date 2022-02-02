@@ -13,7 +13,7 @@ var tower_data = {
 ##				##
 	"MorterTowerT1": {
 		"damge": 50,
-		"rof": 2.5,
+		"rof": 2,
 		"range": 500},
 ##				##
 ## Arrow  Tower ##
@@ -27,17 +27,21 @@ var tower_data = {
 ##				##
 	"MorterTower": {
 		"damge": 50,
-		"rof": 2.5,
+		"rof": 2,
 		"range": 500}}
 
 var wave_data_number = {
-	"wave1": {
-		"spawns": [
-			["Enemy1", 1.0],
-			["Enemy1", 1.0],
-			["Enemy1", 1.0],
-			["Enemy1", 1.0],
-			["Enemy1", 1.0]
-			]
-		}
-	}
+	"wave1": [
+		["Enemy1", 1.0], ["Enemy3", 1.0], ["Enemy1", 1.0], ["Enemy2", 1.0], ["Enemy1", 1.0]
+	],
+	"wave2": [
+		["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0],
+		["Enemy1", 1.0], ["Enemy3", 1.0], ["Enemy3", 1.0], ["Enemy2", 1.0], ["Enemy2", 1.0]
+	],
+	"wave3":[
+		["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0],
+		["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy1", 1.0],
+		["Enemy1", 1.0], ["Enemy1", 1.0], ["Enemy3", 1.0], ["Enemy3", 1.0], ["Enemy3", 1.0],
+		["Enemy3", 1.0], ["Enemy2", 1.0], ["Enemy2", 1.0], ["Enemy2", 1.0], ["Enemy2", 1.0]
+	]
+}
