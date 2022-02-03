@@ -29,19 +29,11 @@ func _ready():
 	
 
 onready var Timer1 = $Timer1
-onready var Timer2 = $Timer2
 onready var Timer1Delay: float = 10
-onready var Timer2Delay: float = 25
 
 func _process(_delta):
 	if build_mode:
 		update_tower_preview()
-	
-
-func _physics_process(delta):
-	Timer2.start(Timer2Delay)
-	if Timer1.is_stopped():
-		no_Enemys()
 	
 
 func _unhandled_input(event):
@@ -58,6 +50,10 @@ func _unhandled_input(event):
 ##
 
 func start_next_wave():
+	if no_enemys:
+		current_wave += 1
+		print("Current wave", current_wave)
+		no_enemys = false
 	var wave_data = retrieve_wave_data()
 	yield(get_tree().create_timer(0.2), "timeout")
 	spawn_enemies(wave_data)
@@ -79,24 +75,17 @@ func spawn_enemies(wave_data):
 		
 	
 
+func _on_Timer2_timeout():
+	no_Enemys()
+	
+
 func no_Enemys():
-	var enemys = get_node("MapRogurim/Path")
-	var Enemys = enemys.get_children()
-	
-	if Enemys.size() == 0:
+	var enemy_count = get_node("MapRogurim/Path").get_child_count()
+	print("statement:", enemy_count)
+	if enemy_count == 0:
 		no_enemys = true
-		No_Enemys()
-	
-
-func No_Enemys():
-	if no_enemys and Timer2.is_stopped():
-		Next_Wave()
-		Timer1.start(Timer1Delay)
-		no_enemys = false
+		start_next_wave()
 		
-
-func Next_Wave():
-	current_wave += 1
 	
 
 ##
@@ -162,3 +151,4 @@ func on_base_damage(damage):
 		get_node("UI").update_health_bar(base_health)
 		
 	
+
