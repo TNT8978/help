@@ -28,9 +28,6 @@ func _ready():
 		
 	
 
-onready var Timer1 = $Timer1
-onready var Timer1Delay: float = 10
-
 func _process(_delta):
 	if build_mode:
 		update_tower_preview()
@@ -50,10 +47,6 @@ func _unhandled_input(event):
 ##
 
 func start_next_wave():
-	if no_enemys:
-		current_wave += 1
-		print("Current wave", current_wave)
-		no_enemys = false
 	var wave_data = retrieve_wave_data()
 	yield(get_tree().create_timer(0.2), "timeout")
 	spawn_enemies(wave_data)
@@ -77,6 +70,16 @@ func spawn_enemies(wave_data):
 
 func _on_Timer2_timeout():
 	no_Enemys()
+	ButtonStuff()
+	
+
+func ButtonStuff():
+	if no_enemys:
+		var NextWaves = get_node("UI/Hud/GameControls/NextWave")
+		NextWaves.visible = true
+		no_enemys = false
+		
+		
 	
 
 func no_Enemys():
@@ -84,7 +87,6 @@ func no_Enemys():
 	print("statement:", enemy_count)
 	if enemy_count == 0:
 		no_enemys = true
-		start_next_wave()
 		
 	
 
@@ -151,4 +153,3 @@ func on_base_damage(damage):
 		get_node("UI").update_health_bar(base_health)
 		
 	
-
