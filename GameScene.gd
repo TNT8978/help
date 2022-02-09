@@ -84,6 +84,9 @@ onready var UpgradeNameText1 = $UpgradePath1/UpgradePath1Name
 onready var UpgradeNameText2 = $UpgradePath2/UpgradePath2Name
 onready var UpgradeNameText3 = $UpgradePath3/UpgradePath3Name
 
+onready var Upgradedata = Upgrades.Upgrade_data
+onready var Upgradearry = Upgrades.Upgrade_array
+
 func UpgradeButtonStuff():
 	var UpgradeCards = $UI/Hud/CardsHud
 	if Button1:
@@ -94,8 +97,6 @@ func UpgradeButtonStuff():
 		UpgradeCards.visible = false
 
 func UpgradeNameTextStuff():
-	var Upgradedata = Upgrades.Upgrade_data
-	var Upgradearry = Upgrades.Upgrade_array
 	var UpgradThing = Upgradedata + Upgradearry
 	UpgradeNameText1.Label_text = str("", UpgradThing[0])
 	UpgradeNameText2.Label_text = str("", UpgradThing[1])
