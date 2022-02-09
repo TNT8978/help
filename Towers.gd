@@ -3,7 +3,7 @@ extends Node2D
 var type
 var enemy_array = []
 var built = false
-var enemy
+var enemy 
 var ready = true
 
 func _ready():
