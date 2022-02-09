@@ -10,7 +10,7 @@ var Upgrade_array = {
 	7: ["Bigger HP Pool"]
 }
 
-var Upgrade_data = {
+var Upgrade_data = [
 	"Bigger Arrows": [
 		GameData.tower_data["ArrowTowerT1"]["damge"] + 20
 	],
@@ -32,6 +32,5 @@ var Upgrade_data = {
 	"Bigger HP Pool":[
 		
 	],
-
-}
+]
 var ActtaveUpgrades = {}
