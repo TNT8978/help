@@ -1,5 +1,15 @@
 extends Node
 
+var Upgrade_array = {
+	1: ["Bigger Arrows"],
+	2: ["Faster Fireing"],
+	3: ["Bigger Bow"],
+	4: ["Thicker Barral"],
+	5: ["Faster Fireing Crew"],
+	6: ["Longer Barral"],
+	7: ["Bigger HP Pool"]
+}
+
 var Upgrades_data = {
 	"Bigger Arrows": [
 		GameData.tower_data["ArrowTowerT1"]["damge"] + 20
@@ -22,5 +32,6 @@ var Upgrades_data = {
 	"Bigger HP Pool":[
 		
 	],
+
 }
 var ActtaveUpgrades = {}
