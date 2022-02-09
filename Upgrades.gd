@@ -1,6 +1,6 @@
 extends Node
 
-var Upgrades_data = [
+var Upgrades_data = {
 	"Bigger Arrows": [
 		GameData.tower_data["ArrowTowerT1"]["damge"] + 20
 	],
@@ -22,6 +22,5 @@ var Upgrades_data = [
 	"Bigger HP Pool":[
 		
 	],
-
-]
+}
 var ActtaveUpgrades = {}
