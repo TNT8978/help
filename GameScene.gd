@@ -94,10 +94,12 @@ func UpgradeButtonStuff():
 		UpgradeCards.visible = false
 
 func UpgradeNameTextStuff():
-	var Upgrade = Upgrades.Upgrades_data
-	UpgradeNameText1.Label_text = str("", Upgrade[0])
-	UpgradeNameText2.Label_text = str("", Upgrade[1])
-	UpgradeNameText3.Label_text = str("", Upgrade[2])
+	var Upgradedata = Upgrades.Upgrade_data
+	var Upgradearry = Upgrades.Upgrade_array
+	var UpgradThing = Upgradedata + Upgradearry
+	UpgradeNameText1.Label_text = str("", UpgradThing[0])
+	UpgradeNameText2.Label_text = str("", UpgradThing[1])
+	UpgradeNameText3.Label_text = str("", UpgradThing[2])
 
 func no_Enemys():
 	var enemy_count = get_node("MapRogurim/Path").get_child_count()
